@@ -11,3 +11,8 @@ Apply image filters
 Create customized scripts
 
 Add OpenCV functions
+
+
+To run the application make sure you have openCV and python installed.
+
+run: python server.py
