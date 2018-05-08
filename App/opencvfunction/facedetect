@@ -1,0 +1,15 @@
+{"effect":[
+	{"line": "def faceDetect()::\n"},
+	{"line": "\t## Image file reading\n"},
+	{"line": "\timage = cv2.imread('imgOriginal.jpg', cv2.IMREAD_COLOR)\n"},
+	{"line": "\n "},
+	{"line": "\t## Applying Face Detection algorithm to image\n"},
+	{"line": "\tface_cascade = cv2.CascadeClassifier('opencvfiles/haarcascades/haarcascade_frontalface_default.xml')\n"},
+	{"line": "\tgray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)\n"},
+	{"line": "\tfaces = face_cascade.detectMultiScale(gray, 1.3, 5)\n"},
+	{"line": "\tfor (x,y,w,h) in faces:\n"},
+	{"line": "\t    cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),10)\n"},
+	{"line": "\n"},
+	{"line": "\t## Escrita da imagem\n"},
+	{"line": "\tcv2.imwrite('imgProcessed.jpg',processed)"}
+]}

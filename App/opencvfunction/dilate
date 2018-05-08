@@ -1,0 +1,12 @@
+{"effect":[
+	{"line": "def dilate(arg1,arg2):\n"},
+	{"line": "\t## Image file reading\n"},
+	{"line": "\timage = cv2.imread('imgOriginal.jpg', cv2.IMREAD_COLOR)\n"},
+	{"line": "\n "},
+	{"line": "\t## Applying blackhat algorithm to image\n"},
+	{"line": "\tkernel = np.ones(arg1,arg1),np.uint8)\n"},
+	{"line": "\tprocessed = cv2.dilate(image,kernel,iterations)\n"},
+	{"line": "\n"},
+	{"line": "\t## Escrita da imagem\n"},
+	{"line": "\tcv2.imwrite('imgProcessed.jpg',processed)"}
+]}

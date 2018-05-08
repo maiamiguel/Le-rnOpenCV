@@ -1,0 +1,14 @@
+{"effect":[
+	{"line": "def BGR2HLS():\n"},
+	{"line": "\t## Image file reading\n"},
+	{"line": "\timage = cv2.imread('imgOriginal.jpg', cv2.IMREAD_COLOR)\n"},
+	{"line": "\n "},
+	{"line": "\t## Applying COLOR_BGR2HLS algorithm to image\n"},
+	{"line": "\tprocessed = cv2.cvtColor(image, cv2.COLOR_BGR2HLS)\n"},
+	{"line": "\n"},
+	{"line": "\t## Escrita da imagem\n"},
+	{"line": "\tcv2.imwrite('imgProcessed.jpg',processed)"}
+]}
+
+
+

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <title>Le@rnOpenCV</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Loading Bootstrap -->
+        <link href="css/bootstrap.css" rel="stylesheet">
+
+        <!-- Edit CSS -->
+        <link href="css/default.css" rel="stylesheet">
+        <link href="css/main.css" rel="stylesheet">
+
+        <!-- Font Awesome -->
+        <link href="css/font-awesome.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,900,700,600,300,200" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700" rel="stylesheet"> 
+        <link rel="shortcut icon" href="images/favicon.ico">
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+        <!--[if lt IE 9]>
+          <script src="js/html5shiv.js"></script>
+          <script src="js/respond.min.js"></script>
+        <![endif]-->
+    <style type="text/css">
+:root .adsbygoogle
+{ display: none !important; }</style></head>
+    <body>
+    
+    
+        <div id="page" class="page">
+        
+        <header class="header1" id="header1">
+
+                <div class="bg-col">
+
+                    <div class="container">
+
+                        <nav role="navigation" class="navbar navbar-default margin-top-20">
+                            <div class="navbar-header">
+                                <button data-target="#navbar-collapse-02" data-toggle="collapse" class="navbar-toggle" type="button">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a href="index.html" class="navbar-brand brand"><i class="fa fa-codepen"></i>Le@rnOpenCV</a>
+                            </div>
+
+                            <div id="navbar-collapse-02" class="collapse navbar-collapse">            
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a href="userarea.html">How to use it</a></li>
+                                    <li><a href="specs.html">Specifications</a></li>
+                                    <li><a href="developerarea.html">Developer area</a></li>
+                                    <li><a href="teamarea.html">Team area</a></li>
+                                </ul>
+                            </div><!-- navbar-collapse -->
+                        </nav>   
+
+                        <div class="intro center-content">
+                            <div class="row">
+
+                                <div class="col-md-12">
+                                    <h1 class="pull-stop text-center">Developer Area</h1>                                    
+                                </div> 
+
+                            </div><!-- row -->
+
+                        </div><!-- intro -->
+
+                    </div><!-- container -->
+                </div><!-- container -->
+
+            </header><!-- header --><!--======== blog update =========-->
+            <section id="blog1" class=" blog1">
+                <div class="container">
+                    <!--<div class="row">
+                        <div class="col-md-8 col-md-offset-2 text-left">
+                            <h2 class="sec-title">CURRENT ARQUITECTURE DESCRIPTION</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 text-center">
+                            <div style="text-align: justify; line-height: 2;">
+                                <p>Currently the project architecture is purely based on a local server and local connection, which means that the server is currently running in one of our personal computers.</p>
+                                <p>For the future, we intend to have a working and dedicated server that will host a compiled version of OpenCV in order to handle the image processing side of the connection, as well as a database that can store personal accounts information such as credentials or images in a client’s library.</p>
+                            </div>
+                        </div>
+                    </div>-->
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 text-left">
+                            <h2 class="sec-title">HOW TO DEPLOY OUR SYSTEM?</h2>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-left: 5%;">
+                        <div class="col-md-8 col-md-offset-2 text-center">
+                            <div style="text-align: justify; line-height: 2;">
+                                <p>The deployment of our system needs only a simple web browser with support for JavaScript and an Internet connection. The system is based on a remote execution of the operations making it possible for anyone to use it without the need of any kind of special equipment or installation.</p>
+                                <p>
+                                    The system uses:
+                                    <ul>
+                                        <li><strong>Cherrypy framework</strong></li>
+                                        <li><strong>OpenCV library</strong></li>
+                                        <li><strong>SQLite3</strong></li>
+                                    </ul>
+                                </p>
+                                <p>The user interface is a web application portal that uses HTML, CSS and JavaScript integrated with jquery request handling. The simplistic implementation allows the user to have a better and more fulfilling experience.</p>
+                                <p>The back-end of our system is python (python 2.7) based and uses Cherrypy as the HTTP framework allowing the developer to build interactive web applications. The choice of Cherrypy was based on its easy to use and simplistic implementation for the tasks at hand. It is responsible for the connection between the system’s frontend and the server side where the modules operate on the images.</p>
+                                <p>The choice for the manipulation module was made by analysing the advantages of different types of tools for the task. The choice was made to use OpenCV library. Its bindings with python contributed to the choice and as Computer Vision learning tool it is excellent, with a wide variety of real  world applications.</p>
+                                <p>For the database we chose SQLite3 because of it is simple to use, configure and manage. Due to it being easily integrated into the system build it can run on the same machine, making it faster and more reliable.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 text-left">
+                            <h2 class="sec-title">HOW TO RUN OUR SYSTEM?</h2>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-left: 5%;">
+                        <div class="col-md-8 col-md-offset-2 text-center">
+                            <div style="text-align: justify; line-height: 2;">
+                                <p>At this point, the system can be run on a local server, but the objective is to establish it on an online server so that it can be accessed everywhere through the use of a browser. To run the application it is necessary that the machine satisfies some requirements, namely the installation of the Cherrypy framework and the OpenCV library for integration with python.</p>
+                                <p>
+                                    CherryPy can be easily installed via common Python package managers such as setuptools or pip:
+                                    <ul>
+                                        <li><strong>$ easy_install cherrypy</strong></li>
+                                        <li><strong>$ pip install cherrypy</strong></li>
+                                    </ul>
+                                </p>
+                                <p>
+                                    The OpenCV installation needs firstly to download some dependencies to work properly. It relies on dependencies like cmake to automatically configure our OpenCV build.. It can be installed by using:
+                                    <ul>
+                                        <li><strong>$ sudo apt-get install build-essential cmake pkg-config</strong></li>
+                                    </ul>
+                                </p>
+                                <p>
+                                    In order to load the images from disk, OpenCV calls other image I/O libraries that actually facilitate the loading and decoding process:
+                                    <ul>
+                                        <li><strong>$ sudo apt-get install libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev</strong></li>
+                                    </ul>
+                                </p>
+                                <p>
+                                    To process video other packages are needed:
+                                    <ul>
+                                        <li><strong>$ sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev</strong></li>
+                                        <li><strong>$ sudo apt-get install libxvidcore-dev libx264-dev</strong></li>
+                                    </ul>
+                                </p>
+                                <p>
+                                    Internally, the module that handles OpenCV GUI operations is highgui and it relies on the GTK library:
+                                    <ul>
+                                        <li><strong>$ sudo apt-get install libgtk-3-dev</strong></li>
+                                    </ul>
+                                </p>
+                                <p>
+                                    To end the dependencies section for the OpenCV installation it is necessary to install Python development headers and libraries for both Python 2.7:
+                                    <ul>
+                                        <li><strong>$ sudo apt-get install python2.7-dev</strong></li>
+                                    </ul>
+                                </p>
+                                <p>
+                                    For the final installation of OpenCV module with python integration just need to run:
+                                    <ul>
+                                        <li><strong>$ pip install opencv-python</strong></li>
+                                    </ul>
+                                </p>
+                                <p>
+                                    If necessary the SQLite database can be installed through the download and installation of packages:
+                                    <ul>
+                                        <li><strong>$ sudo apt-get install sqlite3 libsqlite3-dev</strong></li>
+                                    </ul>
+                                </p>
+                                <p>
+                                    After all the installation  of all the packages necessary the application code can be run through the terminal interface by issuing the command:
+                                    <ul>
+                                        <li><strong>$ python server.py</strong></li>
+                                    </ul>
+                                </p>
+                                <p>This will setup the application for use, and making it possible for the user to interact with the system.</p>
+                                <h3 class="sec-title">Check Instalation</h3>
+                                  
+                                  <p>After the instalation the user should be able to check his verion of Python and OpenCV, it should be 2.7 for Python and 3.1 for OpenCV or latest.</p>
+                                       <li>Check <strong>Python</strong> version:</li>
+                                        python -V<br>
+                                        <br>                                     
+                                       <li>
+                                       	Check <strong>OpenCV</strong> version:<br>
+                                       	$ python<br>
+                                       	>>> import cv2<br>
+                                       	>>> cv2.__version__<br>
+                                       </li>
+                                 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 text-left">
+                            <h2 class="sec-title">HOW TO DEVELOP ON OUR SYSTEM?</h2>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-left: 5%;">
+                        <div class="col-md-8 col-md-offset-2 text-center">
+                            <div style="text-align: justify; line-height: 2;">
+                                <p>The architecture consist of a web application, which offers the user several manipulation options through the access in a menu to the OpenCV functions. These functions are open source and are available for anyone to use. Therefore any interested party could use our system and develop upon it by adding new type of resources and functionalities. The independence of the OpenCV module allows changes to be integrated easily.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 text-left">
+                                <h3 class="sec-title">SYSTEM ARCHITECTURE</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 text-left">
+                                <img src="images/PEI-arch.png" alt="System Arquitecture">
+                            </div>
+                        </div>
+                    </div>
+
+                    <br> </br>
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 text-left">
+                            <h2 class="sec-title">DESIGN AND IMPLEMENTATION OPTIONS</h2>
+                        </div>
+                    </div>
+
+                    
+                    <div class="row" style="padding-left: 5%">
+                        <div class="col-md-8 col-md-offset-2 text-center">
+                            <div style="text-align: justify; line-height: 2;">
+                            
+                            <p> Regarding the model, the exchanges made from the front-end to the back-end modules were all made through POST and GET messages generated with Asynchronous JavaScript And XML (AJAX) which requires the TCP/IP network protocol. GET messages were used mostly when it was required to display a certain image to the user while POST messages were used mostly whenever a user applied a new function, submited a new script, saved a script or a custom function. 
+                            </p>
+
+                            </div>
+
+                            <div style="text-align: justify; line-height: 2;">
+
+                            <p>
+                            For the web framework we chose to use CherryPy due to its rapid deployment, minimalistic nature and simple implementation. As for the database engine we chose SQLite due to its bindings with the python programming language (which was used to build the server module (CherryPy), the script module and the OpenCV library image processing algorithms) and because of the features and functionalities it offers in web application software for local/client storage.
+                            </p>
+
+                            </div>
+                </div>
+
+
+            </section></div><!-- /#page -->
+            <footer id="footer6" class="footer6">
+                <div class="footer-copyright">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <a class="logo" href="index.html">
+                                    <strong>Le@rnOpenCV</strong>
+                                </a>
+                            </div>
+                            <div class="col-md-3">
+                                <p>All rights reserved to bootstrap. &copy; 2017</p>
+                            </div>
+                            <div >
+                                <nav id="footer-menu">
+                                    <ul>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="userarea.html">How to use it</a></li>
+                                        <li><a href="specs.html">Specifications</a></li>
+                                        <li><a href="developerarea.html">Developer area</a></li>
+                                        <li><a href="teamarea.html">Team area</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>      
+
+        <!--=== Load JS here for greater good ====-->
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/isotope.pkgd.js"></script>
+        <script src="js/jquery.countdown.min.js"></script>
+        <script src="js/jquery.flexslider.js"></script>
+        <script src="js/jquery.nivo.slider.pack.js"></script>
+        <script src="js/portfolio-custom1.js"></script>
+        <script src="js/portfolio-custom2.js"></script>
+        <script src="js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,492 @@
+  html,body{
+    background-color: #fff;
+    height: 100%;
+  }
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+.dropzone {
+
+    position:absolute;
+    border: 2px dashed #ccc;
+    border-radius: 20px;
+    font-family: Arial;
+    text-align: center;
+    position: relative;
+    line-height: 180px;
+    font-size: 20px;
+    color: #ccc;
+}
+
+
+.dropzone.dragover{
+    border-color: #000;
+    color: #000; 
+}
+
+
+.dropzone > input{
+    opacity: 0.0; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    bottom: 0; 
+    right: 0; 
+    width: 100%; 
+    height:100%;
+}
+input.ng-invalid {
+    background-color:pink;
+}
+input.ng-valid {
+    background-color:lightgreen;
+}
+
+/* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+
+#info_account_table{
+    border: 1px solid black;
+}
+
+.owners{
+    border:0px solid #ff9d2a;
+    margin:auto;
+    float:left;
+
+}
+span.own1{
+    background:#F8F8F8;
+    border: 5px solid #DFDFDF;
+    color: #717171;
+    font-size: 13px;
+    height: 200px;
+    width:200px;
+    letter-spacing: 1px;
+    line-height: 20px;
+    position:absolute;
+    text-align: center;
+    text-transform: uppercase;
+    top: auto;
+    left:auto;
+    display:none;
+    padding:0 0px;   
+}
+
+p.own{
+    margin:0px;
+    float:left;
+    position:relative;
+    cursor:pointer;
+}
+
+p.own:hover span{
+    display:block;
+    z-index:9;
+}
+
+.cli{
+    margin-top: 10px;
+    position: fixed;
+    margin-bottom: 10px;
+    bottom: 0px;
+    width: 75%;
+}
+
+
+.modal-footer{
+    text-align: center;
+}
+.pagination{
+    margin: 0;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* make sidebar nav vertical */ 
+@media (min-width: 768px){
+  .affix-content .container {
+    width: 700px;
+  }   
+
+  html,body{
+    background-color: #fff;
+    height: 100%;
+    overflow: hidden;
+  }
+    .affix-content .container .page-header{
+    margin-top: 0;
+  }
+  .sidebar-nav{
+        position:inherit; 
+        width:100%;
+  }
+  .affix-sidebar{
+    padding-right:0; 
+    font-size:small;
+    padding-left: 0;
+    height: 100%;
+    background-color:#2C3E50;
+    overflow: auto;
+  }  
+  .affix-row, .affix-container, .affix-content{
+    height: 100%;
+    margin-left: 0;
+    margin-right: 0;    
+  } 
+  .affix-content{
+    background-color:#FFF; 
+  } 
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar{
+    border-radius:0; 
+    margin-bottom:0; 
+    border:0;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }  
+}
+
+@media (min-width: 769px){
+  .affix-content .container {
+    width: 600px;
+  }
+    .affix-content .container .page-header{
+    margin-top: 0;
+  }  
+}
+
+@media (min-width: 992px){
+  .affix-content .container {
+  width: 900px;
+  }
+    .affix-content .container .page-header{
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 1220px){
+  .affix-row{
+    overflow: hidden;
+  }
+
+  .affix-content{
+    overflow: auto;
+  }
+
+  .affix-content .container {
+    width: 1000px;
+  }
+
+  .affix-content .container .page-header{
+    margin-top: 0;
+  }
+  .affix-content{
+    padding-right: 30px;
+    padding-left: 30px;
+  }  
+  .affix-title{
+    border-bottom: 1px solid #ecf0f1; 
+    padding-bottom:10px;
+  }
+  .navbar-nav {
+    margin: 0;
+  }
+  .navbar-collapse{
+    padding: 0;
+  }
+  .sidebar-nav .navbar li a:hover {
+    background-color: #428bca;
+    color: white;
+  }
+  .sidebar-nav .navbar li a > .caret {
+    margin-top: 8px;
+  }  
+}
+
+#img_toExpand {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#img_toExpand:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal_img {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal_img-content {
+    margin: auto;
+    display: block;
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.modal_img-content, #caption {    
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close_img {
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close_img:hover,
+.close_img:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal_img-content {
+        width: 100%;
+    }
+}
+#carousel {
+    width: 100%;
+    height: 120px;
+    overflow-x: scroll;
+    white-space:nowrap;
+}
+
+#carousel .slide {
+    display: inline-block;
+    max-height: 100px;
+}
+
+#carousel .slide > img {
+    max-height: inherit;
+}
+
+.uploadbutton1{
+    display: none;
+    padding-top: 10px;
+    z-index: 100;
+    position: fixed;
+    background-color: #2C3E50;
+    left: 0px;
+    margin-left: 16.66666667%;
+    margin-top: -5%;
+    width: 10%;
+    border-radius: 12px;    
+}
+
+.args{
+    display: none;
+    padding-top: 10px;
+    z-index: 100;
+    position: fixed;
+    background-color: #2C3E50;
+    left: 0px;
+    margin-left: 16.66666667%;
+    margin-top: -5%;
+    width: 10%;
+    border-radius: 12px;
+}
+
+
+.slider {
+  width: 100%;
+}
+
+input[type="range"] {
+  -webkit-appearance: none !important;
+  width: 100%;
+  height: 10px;
+  background-color: #FFF;
+  border: 1px solid #97c68b;
+  border-radius: 10px;
+  margin: auto;
+  transition: all 0.3s ease;
+}
+input[type="range"]:hover {
+  background-color: #ccebff;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  width: 15px;
+  height: 15px;
+  background-color: #0099ff;
+  border-radius: 30px;
+  box-shadow: 0px 0px 3px #0099ff;
+  transition: all 0.5s ease;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  background-color: #0066cc;
+}
+input[type="range"]::-webkit-slider-thumb:active {
+  box-shadow: 0px 0px 1px #0066cc;
+}
+
+.rangevalue {
+  text-align: center;
+  font-size: 13px;
+  display: block;
+  width: 100%;
+  color: #FFF;
+}
+
+.galleryImgbtnsRigth{
+  position:absolute;
+  top:5px;
+  right:5px;
+  margin:0;
+  padding:0px;
+  background: transparent;
+  
+}
+
+.galleryImgbtnsLeft{
+  position:absolute;
+  top:5px;
+  left:5px;
+  margin:0;
+  padding:0px;  
+  background: transparent;
+}

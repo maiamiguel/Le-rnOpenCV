@@ -1,0 +1,16 @@
+{"effect":[
+	{"line": "def simplethresholding(arg1):\n"},
+	{"line": "\t## Image file reading\n"},
+	{"line": "\timage = cv2.imread('imgOriginal.jpg', cv2.IMREAD_COLOR)\n"},
+	{"line": "\n "},
+	{"line": "\t## Applying simple thresholding algorithm to image\n"},
+	{"line": "\timage = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)\n"},
+	{"line": "\tcode = [cv2.THRESH_BINARY, cv2.THRESH_BINARY_INV, cv2.THRESH_TRUNC, cv2.THRESH_TOZERO, cv2.THRESH_TOZERO_INV]\n"},
+	{"line": "\tmp, processed = cv2.threshold(image,127,255,code[arg1])\n"},
+	{"line": "\n"},
+	{"line": "\t## Escrita da imagem\n"},
+	{"line": "\tcv2.imwrite('imgProcessed.jpg',processed)"}
+]}
+
+
+

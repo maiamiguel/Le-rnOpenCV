@@ -1,0 +1,14 @@
+{"effect":[
+	{"line": "def gaussianBlur(arg1,arg2):\n"},
+	{"line": "\t## Image file reading\n"},
+	{"line": "\timage = cv2.imread('imgOriginal.jpg', cv2.IMREAD_COLOR)\n"},
+	{"line": "\n "},
+	{"line": "\t## Applying GaussianBlur algorithm to image\n"},
+	{"line": "\tprocessed = cv2.GaussianBlur(image,(5,5),0)\n"},
+	{"line": "\n"},
+	{"line": "\t## Escrita da imagem\n"},
+	{"line": "\tcv2.imwrite('imgProcessed.jpg',processed)"}
+]}
+
+
+

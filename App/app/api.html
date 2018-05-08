@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <title>Le@rnOpenCV</title>
+    <link rel="icon" type="image/png" href="images/favicon.ico">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- MY CSS -->
+    <link rel="stylesheet" type="text/css" href="css/mycss.css">
+    <link rel="stylesheet" href="css/simple-console.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    
+    <!-- title Navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!--Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+            </button>
+            <a class="navbar-brand" href="/index">Le@rnOpenCV</a>            
+        </div>
+        <!--Top Menu Items -->
+        <ul class="nav navbar-right top-nav">
+            <li>
+                <div id="help" class="popup">
+                    <span class="popuptext"  id="myPopup1">1.Upload your image here !</span>
+                    <span class="popuptext2" id="myPopup2">2.Choose an effect !</span>
+                    <span class="popuptext3" id="myPopup3">3.Also you can enter in the terminal to choose an effect !</span>
+                    <span class="popuptext4" id="myPopup4">4.If you like this image you can save to your favorites !</span>
+                    <span class="popuptext5" id="myPopup5">5.You can follow the script to be done and save in the button in the menu above.</span>
+                </div> 
+            </li>
+            <li>
+                <a id="undo"><i class="fa fa-chevron-left">Undo</i></a>
+            </li>
+            <li>
+                <a id="redo">Redo<i class="fa fa-chevron-right"></i></a>
+            </li>
+            <li>
+                <a id="image_download" download="downloadimage.jpg" onclick="downloadImage()">
+                <i class="fa fa-cloud-download"></i>
+                    Download                    
+                </a>
+            </li>
+            <li>
+                <input id="script_input" type="file" style="display:none;">
+                <a type="file" id="script_input_click" onclick="document.getElementById('script_input').click()">
+                    <i class="fa fa-file-code-o" aria-hidden="true"></i>
+                    Upload script                    
+                </a>
+            </li>
+            <li>
+                <a id="script_apply">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    Apply script
+                </a>
+            </li>
+            <li>
+                <a href="/histPage"><i class="fa fa-star" aria-hidden="true"></i>
+                Favorite Images</a>
+            </li>
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><span class="name_identifier" ></span><b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="/account"><i class="fa fa-fw fa-user"></i> Profile</a>
+                    </li>                    
+                    <li class="divider"></li>
+                    <li>
+                        <a href="/auth/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <!-- /.title Navbar -->
+
+    <div class="row affix-row">
+        <!-- _________________________________________________________________ -->
+        <!--  affix-sidebar-->
+        <div class="col-sm-3 col-md-2 affix-sidebar">
+            <div class="sidebar-nav">
+                <div class="navbar navbar-default" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        </button>
+                        <span class="visible-xs navbar-brand">Sidebar menu</span>
+                    </div>
+                                  
+                    <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                        <ul class="nav navbar-nav" style="color: #FFF" id="sidenav01">
+                            <li class="active">
+                                <a href="#" id="menu1" data-toggle="collapse" data-target="#toggleDemo1" data-parent="#sidenav01">
+                                <span onclick="open_modal(7)" class="glyphicon glyphicon-info-sign"></span> 
+                                Feature Detection 
+                                <span class="caret pull-right"></span>
+                                </a>
+                        <div class="collapse" id="toggleDemo1" style="height: 0px;">
+                            <ul class="nav nav-list">
+                                <div class="row">
+                                    <div class="row args" id="canny_slider" style="display: none"><br><br>
+                                        <div class="col-xs-12 form-group slider">
+                                            threshold1:
+                                            <input type="range" id="canny_myRange_arg1" value="150" min="0" max="300" name="Arg1" onchange="rangevalue1.value=value"/>
+                                            <output class="rangevalue" id="rangevalue1">150</output>
+                                        </div>
+                                        <div class="col-xs-12 form-group slider">
+                                            threshold2:
+                                            <input type="range" id="canny_myRange_arg2" value="150" min="0" max="300" name="Arg2" onchange="rangevalue2.value=value"/>
+                                            <output class="rangevalue" id="rangevalue2">150</output>
+                                        </div> 
+                                        <div class="col-xs-12 uploadbutton" align="middle">
+                                            <i id="canny" class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="font-size: x-large"></i>
+                                        </div>
+                                    </div> 
+                                    <div class="col-xs-1" style="padding-left: 35px">
+                                        <i onclick="open_modal(0)" class="fa fa-info"></i>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <label style="color: #FFFFFF"> Canny </label>  
+                                    </div>                  
+                                    <div class="col-xs-3" id="show_slide_canny">
+                                        <i class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="color:#FFF;"></i>
+                                    </div>
+                                </div>
+                            </ul>
+                        </div>
+                        </li>
+                        <li class="active">
+                            <a href="#" id="menu2" data-toggle="collapse" data-target="#toggleDemo2" data-parent="#sidenav01">
+                            <span onclick="open_modal(1)" class="glyphicon glyphicon-info-sign"></span>
+                            Image filtering 
+                            <span class="caret pull-right"></span>
+                            </a>
+                            <div class="collapse" id="toggleDemo2" style="height: 0px;">
+                            <ul class="nav nav-list">
+                                <div class="row form-group">
+                                    <div onclick="open_modal(23)" class="col-xs-1" style="padding-left: 35px"><i class="fa fa-info"></i>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <label style="color: #FFFFFF">Median Blur </label>  
+                                    </div>                  
+                                    <div class="col-xs-3">
+                                        <div class="uploadbutton">
+                                            <form name="myForm">
+                                                <i id="medianblur" class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="font-size: x-large"></i>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="row form-group">
+                                    <div onclick="open_modal(24)" class="col-xs-1" style="padding-left: 35px"><i class="fa fa-info"></i>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <label style="color: #FFFFFF">Gaussian Blur </label>  
+                                    </div>                  
+                                    <div class="col-xs-3">
+                                        <div class="uploadbutton">
+                                            <form name="myForm">
+                                                <i id="gaussianblur" class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="font-size: x-large"></i>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>                       
+                                <div class="row">
+                                    <div class="row args" id="blur_slider" style="display: none">
+                                        <div class="col-xs-12 form-group slider">
+                                            arg1:
+                                            <input type="range" id="blur_myRange_arg1" value="150" min="0" max="300" name="Arg1" onchange="rangevalue3.value=value"/>
+                                            <output class="rangevalue" id="rangevalue3">150</output>
+                                        </div>
+                                        <div class="col-xs-12 form-group slider">
+                                            arg2:
+                                            <input type="range" id="blur_myRange_arg2" value="150" min="0" max="300" name="Arg2" onchange="rangevalue4.value=value"/>
+                                            <output class="rangevalue" id="rangevalue4">150</output>
+                                        </div>
+                                        <div class="col-xs-12 uploadbutton" align="middle">
+                                            <i id="blur" class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="font-size: x-large"></i>
+                                        </div>
+
+                                    </div> 
+                                    <div class="col-xs-1" style="padding-left: 35px">
+                                        <i onclick="open_modal(2)" class="fa fa-info"></i>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <label style="color: #FFF"> Blur </label>  
+                                    </div>                  
+                                    <div class="col-xs-3" id="show_slide_blur">
+                                        <i class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="color:#FFF;"></i>
+                                    </div>
+                                </div>
+                            </ul>
+                          </div>
+                        </li>
+                        <li class="active">
+                            <a href="#" id="menu3" data-toggle="collapse" data-target="#toggleDemo3" data-parent="#sidenav01">
+                            <span onclick="open_modal(3)" class="glyphicon glyphicon-info-sign"></span> Cvt Color <span class="caret pull-right"></span>
+                            </a>
+                            <div class="collapse" id="toggleDemo3" style="height: 0px;">
+                            <ul class="nav nav-list">
+                                <div class="row form-group">
+                                    <div onclick="open_modal(4)" class="col-xs-1" style="padding-left: 35px"><i class="fa fa-info" ></i>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <label style="color: #FFFFFF">RGB to Gray </label>  
+                                    </div>                  
+                                    <div class="col-xs-3">
+                                        <div class="uploadbutton">
+                                            <form name="myForm">
+                                                <i id="gray" class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="font-size: x-large"></i>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div onclick="open_modal(5)" class="col-xs-1" style="padding-left: 35px"><i class="fa fa-info"></i>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <label style="color: #FFFFFF">RGB to HSV </label>  
+                                    </div>                  
+                                    <div class="col-xs-3">
+                                        <div class="uploadbutton">
+                                            <form name="myForm">
+                                                <i id="hsv" class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="font-size: x-large"></i>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div onclick="open_modal(6)" class="col-xs-1" style="padding-left: 35px"><i class="fa fa-info"></i>
+                                    </div>
+                                    <div class="col-xs-6"> 
+                                        <label style="color: #FFFFFF">RGB to HLS </label>  
+                                    </div>                  
+                                    <div class="col-xs-3">
+                                        <div class="uploadbutton">
+                                            <form name="myForm">
+                                                <i id="hls" class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="font-size: x-large"></i>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ul>
+                            </div>
+                        </li>
+                        <li class="active">
+                          <a href="#" id="menu4" data-toggle="collapse" data-target="#toggleDemo4" data-parent="#sidenav01" class="collapsed">
+                          <span onclick="open_modal(8)" class="glyphicon glyphicon-info-sign"></span> 
+                          Morphological Transformations 
+                          <span class="caret pull-right"></span>
+                          </a>
+                          <div class="collapse" id="toggleDemo4" style="height: 0px;">
+                            <ul class="nav nav-list">
+                                <div class="row form-group">
+                                    <div class="col-xs-1" style="padding-left: 35px"><i onclick="open_modal(9)" class="fa fa-info"></i>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <label style="color: #FFFFFF">Erode </label>  
+                                    </div>                  
+                                    <div class="col-xs-3">
+                                        <i id="show_slide_erode" class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="font-size: x-large"></i>
+                                    </div>
+                                </div>
+                                <div class="row args" id="erode_slider">
+                                    <div class="col-xs-9 form-group">
+                                        Erode Arg:
+                                        <input type="range" id="erode_myRange_arg1" value="7" min="1" max="15" name="Arg1" step="2" onchange="rangevalue5.value=value"/>
+                                    </div>
+                                    <div class="col-xs-3 form-group">
+                                        <output class="rangevalue" id="rangevalue5">7</output>
+                                    </div>
+                                    <div class="col-xs-8 form-group">
+                                        Iterations:
+                                        <input style="max-width: 100%" type="text" id="erode_iterations" value="1" name="iterations">
+                                    </div>
+                                    <div class="col-xs-3 uploadbutton">
+                                        <i id="erode" class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="font-size: x-large"></i>
+                                    </div>                                   
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-xs-1" style="padding-left: 35px"><i onclick="open_modal(10)" class="fa fa-info"></i>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <label style="color: #FFFFFF">Dilate </label>  
+                                    </div>                  
+                                    <div class="col-xs-3">                                        
+                                        <i  id="show_slide_dilate" class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="font-size: x-large"></i>                                        
+                                    </div>
+                                </div>
+                                <div class="row args" id="dilate_slider">
+                                    <div class="col-xs-9 form-group">
+                                        Dilate arg:
+                                        <input type="range" id="dilate_myRange_arg1" value="7" min="1" max="15" name="Arg1" step="2" onchange="rangevalue6.value=value"/>
+                                    </div>
+                                    <div class="col-xs-3 form-group">
+                                        <output class="rangevalue" id="rangevalue6">7</output>
+                                    </div>
+                                    <div class="col-xs-8 form-group">
+                                        Iterations:
+                                        <input style="max-width: 100%" type="text" id="dilate_iterations" value="1" name="iterations">
+                                    </div>
+                                    <div class="col-xs-3 uploadbutton">
+                                        <i id="dilate" class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="font-size: x-large"></i>
+                                    </div>                                    
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-xs-1" style="padding-left: 35px"><i onclick="open_modal(11)" class="fa fa-info"></i>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <label style="color: #FFFFFF">Opening </label>  
+                                    </div>                  
+                                    <div class="col-xs-3">
+                                      <i id="show_slide_opening" class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="font-size: x-large"></i>                                    
+                                    </div>
+                                </div>
+                                <div class="row args" id="opening_slider">
+                                    <div class="col-xs-12 form-group">
+                                        Opening arg:
+                                        <input type="range" id="opening_myRange_arg1" value="7" min="1" max="15" name="Arg1" step="2" onchange="rangevalue7.value=value"/>
+                                        <output class="rangevalue" id="rangevalue7">7</output>
+                                    </div>
+                                    <div class="col-xs-12 uploadbutton" align="middle">
+                                        <i id="opening" class="fa fa-arrow-circle-o-right fa-2x" style="font-size: x-large"></i>
+                                    </div>                                    
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-xs-1" style="padding-left: 35px"><i onclick="open_modal(12)" class="fa fa-info"></i>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <label style="color: #FFFFFF">Closing </label>  
+                                    </div>                  
+                                    <div class="col-xs-3">
+                                      <i id="show_slide_closing" class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="font-size: x-large"></i>                                    
+                                </div>
+                                </div>
+                                <div class="row args" id="closing_slider">
+                                    <div class="col-xs-12 form-group">
+                                        Closing arg:
+                                        <input type="range" id="closing_myRange_arg1" value="7" min="1" max="15" name="Arg1" step="2" onchange="rangevalue8.value=value"/>
+                                        <output class="rangevalue" id="rangevalue8">7</output>
+                                    </div>
+                                    <div class="col-xs-12 uploadbutton" align="middle">
+                                        <i id="closing" class="fa fa-arrow-circle-o-right fa-2x" style="font-size: x-large"></i>
+                                    </div>                                    
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-xs-1" style="padding-left: 35px"><i onclick="open_modal(13)" class="fa fa-info"></i>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <label style="color: #FFFFFF">Gradient </label> 
+                                    </div>                  
+                                    <div class="col-xs-3">
+                                        <i  id="show_slide_gradient" class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="font-size: x-large"></i>
+                                    </div>
+                                </div>
+                                <div class="row args" id="gradient_slider">
+                                    <div class="col-xs-12 form-group">
+                                        Gradient arg:
+                                        <input type="range" id="gradient_myRange_arg1" value="7" min="1" max="15" name="Arg1" step="2" onchange="rangevalue9.value=value"/>
+                                        <output class="rangevalue" id="rangevalue9">7</output>
+                                    </div>
+                                    <div class="col-xs-12 uploadbutton" align="middle">
+                                        <i id="gradient" class="fa fa-arrow-circle-o-right fa-2x" style="font-size: x-large"></i>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-xs-1" style="padding-left: 35px"><i onclick="open_modal(14)" class="fa fa-info"></i>
+                                    </div>
+                                    <div class="col-xs-6"> 
+                                        <label style="color: #FFFFFF">TopHat </label>
+                                    </div>                  
+                                    <div class="col-xs-3">
+                                        <i  id="show_slide_tophat" class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="font-size: x-large"></i>
+                                    </div>
+                                </div>
+                                <div class="row args" id="tophat_slider">
+                                    <div class="col-xs-12 form-group">
+                                        TopHat arg:
+                                        <input type="range" id="tophat_myRange_arg1" value="7" min="1" max="15" name="Arg1" step="2" onchange="rangevalue10.value=value"/>
+                                        <output class="rangevalue" id="rangevalue10">7</output>
+                                    </div>
+                                    <div class="col-xs-12 uploadbutton" align="middle">
+                                        <i id="tophat" class="fa fa-arrow-circle-o-right fa-2x" style="font-size: x-large"></i>
+                                    </div>
+                                </div> 
+                                <div class="row form-group">
+                                    <div class="col-xs-1" style="padding-left: 35px"><i onclick="open_modal(15)" class="fa fa-info"></i>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <label style="color: #FFFFFF">BlackHat </label>
+                                    </div>                  
+                                    <div class="col-xs-3">
+                                        <i  id="show_slide_blackhat" class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="font-size: x-large"></i>
+                                    </div>
+                                </div>
+                                <div class="row args" id="blackhat_slider">
+                                    <div class="col-xs-12 form-group">
+                                        Blackhat arg:
+                                        <input type="range" id="blackhat_myRange_arg1" value="7" min="1" max="15" name="Arg1" step="2" onchange="rangevalue11.value=value"/>
+                                        <output class="rangevalue" id="rangevalue11">7</output>
+                                    </div>
+                                    <div class="col-xs-12 uploadbutton" align="middle">
+                                        <i id="blackhat" class="fa fa-arrow-circle-o-right fa-2x" style="font-size: x-large"></i>
+                                    </div>
+                                </div> 
+                            </ul>
+                          </div>
+                        </li> 
+                        <li class="active">
+                            <a href="#" id="menu5" data-toggle="collapse" data-target="#toggleDemo5" data-parent="#sidenav01">
+                            <span onclick="open_modal(16)" class="glyphicon glyphicon-info-sign"></span> Face & Eyes Detection <span class="caret pull-right"></span>
+                            </a>
+                            <div class="collapse" id="toggleDemo5" style="height: 0px;">
+                            <ul class="nav nav-list">
+                                <div class="row form-group">
+                                    <div class="col-xs-1" style="padding-left: 35px"></div>
+                                    <div class="col-xs-6">
+                                        <label style="color: #FFFFFF">Faces </label>  
+                                    </div>                  
+                                    <div class="col-xs-3">
+                                        <div class="uploadbutton">
+                                            <form name="myForm">
+                                                <i id="facedetect" class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="font-size: x-large"></i>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="row form-group">
+                                    <div class="col-xs-1" style="padding-left: 35px"></div>
+                                    <div class="col-xs-6">
+                                        <label style="color: #FFFFFF">Eyes </label>  
+                                    </div>                  
+                                    <div class="col-xs-3">
+                                        <div class="uploadbutton">
+                                            <form name="myForm">
+                                                <i id="eyedetect" class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="font-size: x-large"></i>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-xs-1" style="padding-left: 35px"></div>
+                                    <div class="col-xs-6">
+                                        <label style="color: #FFFFFF">Faces & Eyes </label>  
+                                    </div>                  
+                                    <div class="col-xs-3">
+                                        <div class="uploadbutton">
+                                            <form name="myForm">
+                                                <i id="faceeyedetect" class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="font-size: x-large"></i>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>      
+                            </ul>
+                            </div>
+                        </li>
+                        <li class="active">
+                            <a href="#" id="menu6" data-toggle="collapse" data-target="#toggleDemo6" data-parent="#sidenav01">
+                            <span onclick="open_modal(17)" class="glyphicon glyphicon-info-sign"></span> Image Transformations <span class="caret pull-right"></span>
+                            </a>
+                            <div class="collapse" id="toggleDemo6" style="height: 0px;">
+                            <ul class="nav nav-list">
+                                <div class="row form-group">
+                                    <div class="row args" id="resize_slider" style="display: none"><br><br>
+                                        <div class="col-xs-12 form-group slider">
+                                            Mult. x:
+                                            <input type="range" id="resize_myRange_arg1" value="3" min="1" max="5" name="Arg1" onchange="rangevalue12.value=value"/>
+                                            <output class="rangevalue" id="rangevalue12">3</output>
+                                        </div>
+                                        <div class="col-xs-12 form-group slider">
+                                            Mult. y:
+                                            <input type="range" id="resize_myRange_arg2" value="3" min="1" max="5" name="Arg2" onchange="rangevalue13.value=value"/>
+                                            <output class="rangevalue" id="rangevalue13">3</output>
+                                        </div> 
+                                        <div class="col-xs-12 uploadbutton" align="middle">
+                                            <i id="resize" class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="font-size: x-large"></i>
+                                        </div>
+                                    </div> 
+                                    <div class="col-xs-1" style="padding-left: 35px">
+                                        <i onclick="open_modal(18)" class="fa fa-info"></i>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <label style="color: #FFFFFF"> Resize </label>  
+                                    </div>                  
+                                    <div class="col-xs-3" id="show_slide_resize">
+                                        <i class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="color:#FFF"></i>
+                                    </div>
+                                </div> 
+     
+                            </ul>
+                            </div>
+                        </li>
+                        <li class="active">
+                            <a href="#" id="menu7" data-toggle="collapse" data-target="#toggleDemo7" data-parent="#sidenav01">
+                            <span onclick="open_modal(19)" class="glyphicon glyphicon-info-sign"></span> Image Thresholding <span class="caret pull-right"></span>
+                            </a>
+                            <div class="collapse" id="toggleDemo7" style="height: 0px;">
+                            <ul class="nav nav-list">
+                                <div class="row form-group">
+                                    <div class="row args" id="simplethresholding_slider" style="display: none"><br><br>
+                                        <div class="col-xs-12 form-group slider">
+                                            Threshold type:
+                                            <input type="range" id="simplethresholding_myRange_arg1" value="0" min="0" max="4" name="Arg1" onchange="rangevalue14.value=value"/>
+                                            <output class="rangevalue" id="rangevalue14">0</output>
+                                        </div>
+                                        <div class="col-xs-12 uploadbutton" align="middle">
+                                            <i id="simplethresholding" class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="font-size: x-large"></i>
+                                        </div>
+                                    </div> 
+                                    <div class="col-xs-1" style="padding-left: 35px">
+                                        <i onclick="open_modal(20)" class="fa fa-info"></i>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <label style="color: #FFFFFF"> Simple Thresholding </label>  
+                                    </div>                  
+                                    <div class="col-xs-3" id="show_slide_simplethresholding">
+                                        <i class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="color:#FFF"></i>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="row args" id="adaptivethresholding_slider" style="display: none"><br><br>
+                                        <div class="col-xs-12 form-group slider">
+                                            Threshold type:
+                                            <input type="range" id="adaptivethresholding_myRange_arg1" value="0" min="0" max="1" name="Arg1" onchange="rangevalue15.value=value"/>
+                                            <output class="rangevalue" id="rangevalue15">0</output>
+                                        </div>
+                                        <div class="col-xs-12 uploadbutton" align="middle">
+                                            <i id="adaptivethresholding" class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="font-size: x-large"></i>
+                                        </div>
+                                    </div> 
+                                    <div class="col-xs-1" style="padding-left: 35px">
+                                        <i onclick="open_modal(25)" class="fa fa-info"></i>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <label style="color: #FFFFFF"> Adaptive Thresholding </label>  
+                                    </div>                  
+                                    <div class="col-xs-3" id="show_slide_adaptivethresholding">
+                                        <i class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="color:#FFF"></i>
+                                    </div>
+                                </div> 
+                            </ul>              
+                        </li>             
+                        <li class="active">
+                            <a href="#" id="menu8" data-toggle="collapse" data-target="#toggleDemo8" data-parent="#sidenav01">
+                            <span onclick="open_modal(21)" class="glyphicon glyphicon-info-sign"></span> Image Matching <span class="caret pull-right"></span>
+                            </a>
+                            <div class="collapse" id="toggleDemo8" style="height: 0px;">
+                            <ul class="nav nav-list">
+                                <div class="row form-group">
+                                    <div class="col-xs-1" style="padding-left: 35px"></div>
+                                    <div class="col-xs-6">
+                                        <label style="color: #FFFFFF">Matching </label>  
+                                    </div>                  
+                                    <div class="col-xs-3"></div>
+                                </div>
+                                <div class="col-lg-11 col-md-11 col-sm-11">
+                                    <div class="form-group">
+                                        <div class= "dropzone" id="dropzoneMatch">
+                                            <input type="file" id="fileinputMatch" alt="Add patern to match"/>
+                                                <div id="imageMatch" style="max-height: 10vh; line-height: 100px; display: inline-block;height: 100%;vertical-align: middle;">
+                                                    Drop files
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-9">
+                                    <label style="color: #FFFFFF">CCOEFF </label>  
+                                </div>                  
+                                <div class="col-xs-2">
+                                    <div class="uploadbuttonMatch form-group">
+                                        <form name="myForm">
+                                            <i id="cv2.TM_CCOEFF" class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="font-size: x-large"></i>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-9">
+                                    <label style="color: #FFFFFF">CCOEFF_NORMED </label>  
+                                </div>                  
+                                <div class="col-xs-2">
+                                    <div class="uploadbuttonMatch form-group">
+                                        <form name="myForm">
+                                            <i id="cv2.TM_CCOEFF_NORMED" class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="font-size: x-large"></i>
+                                        </form>
+                                    </div>
+                                </div> 
+
+                                <div class="col-xs-9">
+                                    <label style="color: #FFFFFF">CCORR </label>  
+                                </div>                  
+                                <div class="col-xs-2">
+                                    <div class="uploadbuttonMatch form-group">
+                                        <form name="myForm">
+                                            <i id="cv2.TM_CCORR" class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="font-size: x-large"></i>
+                                        </form>
+                                    </div>
+                                </div> 
+
+                                <div class="col-xs-9">
+                                    <label style="color: #FFFFFF">CCORR_NORMED </label>  
+                                </div>                  
+                                <div class="col-xs-2">
+                                    <div class="uploadbuttonMatch form-group">
+                                        <form name="myForm">
+                                            <i id="cv2.TM_CCORR_NORMED" class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="font-size: x-large"></i>
+                                        </form>
+                                    </div>
+                                </div>                                                                   
+                                
+                                <div class="col-xs-9">
+                                    <label style="color: #FFFFFF">SQDIFF </label>  
+                                </div>                  
+                                <div class="col-xs-2">
+                                    <div class="uploadbuttonMatch form-group">
+                                        <form name="myForm">
+                                            <i id="cv2.TM_SQDIFF" class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="font-size: x-large"></i>
+                                        </form>
+                                    </div>
+                                </div>                                                                   
+
+                                <div class="col-xs-9">
+                                    <label style="color: #FFFFFF">SQDIFF_NORMED </label>  
+                                </div>                  
+                                <div class="col-xs-2">
+                                    <div class="uploadbuttonMatch form-group">
+                                        <form name="myForm">
+                                            <i id="cv2.TM_SQDIFF_NORMED" class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true" style="font-size: x-large"></i>
+                                        </form>
+                                    </div>
+                                </div>                                                            
+                            </ul>              
+                        </li>                                     
+                        <li class="active">
+                            <a href="#" id="menu9" data-toggle="collapse" data-target="#toggleDemo9" data-parent="#sidenav01">
+                            <span onclick="open_modal(22)" class="glyphicon glyphicon-info-sign"></span> Custom Scripts <span class="caret pull-right"></span></a>
+                            <div class="collapse" id="toggleDemo9" style="height: 0px;">
+                                <ul class="nav nav-list" id="newScriptsLocation">
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="active">
+                            <a href="#" data-toggle="modal" data-target="#squarespaceModal"><i class="fa fa-plus" aria-hidden="true"></i> Add new functions</a>
+                        </li>                   
+                        <li class="active">
+                            <a href="#" id="menu10" data-toggle="collapse" data-target="#toggleDemo10" data-parent="#sidenav01"><span onclick="open_modal(26)" class="glyphicon glyphicon-info-sign"></span> Added functions <span class="caret pull-right"></span></a>
+                            <div class="collapse" id="toggleDemo10" style="height: 0px;">
+                                <ul class="nav nav-list" id="addedFunctions">
+                                </ul>
+                            </div>
+                        </li> 
+                        <li class="active" style="border-bottom-style: none;">
+                            <a href="#" id="menu11" data-toggle="collapse" data-target="#toggleDemo11" data-parent="#sidenav01"></a>
+                            <div class="collapse" id="toggleDemo11" style="height: 0px;">
+                                <ul class="nav nav-list">
+                                </ul>
+                            </div>
+                        </li>                                                  
+                      </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+        <!--/.affix-sidebar-->
+
+        <!-- _________________________________________________________________ -->
+
+        <!--  affix-content-->
+        <div id="wrapper" class="col-sm-9 col-md-10 affix-content">
+            <div class="container-fluid">
+            <br>                    
+            
+                <div class="row">                          
+                    <div class="col-lg-1 col-md-1 col-sm-1" style="left: 6.5%">
+                        <button id="saveToHistoryMain" class="btn galleryImgbtnsLeft" style="left: 50px; z-index: 1" alt="Add to favorites"><i class="fa fa-star fa-2x"  style="color: #e6d309; visibility: hidden;" aria-hidden="true"></i></button>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8">
+                        <div class="form-group">
+                            <div class= "dropzone" id="dropzone">    
+                                <input type="file" id="fileinput" alt="Add images to process"/>
+                                    <div id="loading" style="position:absolute; padding-top: 50%;margin-top: -25%;margin-left: 40%;">
+                                        
+                                    </div>
+                                    <div id="image" style=" line-height: 100px; display: inline-block;height: 36vh;vertical-align: middle;">
+                                        Drop files here or click to upload an image
+                                    </div>
+                            </div>
+                        </div>
+                        <!-- GALLERY -->
+                        <div class="row">                          
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div id="carousel" style="visibility: hidden;">
+                                    <div class="slide" style="position:relative;">
+                                        
+                                            <button id="removeFromGallery" class="btn galleryImgbtnsRigth galleryImg0btns">
+                                            <i class="fa fa-times fa-2x galleryImg0btns" aria-hidden="true" style="color: red; visibility: hidden"></i></button>
+                                            <button id="saveToHistory" class="btn galleryImgbtnsLeft galleryImg0btns"><i class="fa fa-star fa-2x galleryImg0btns"  style="color: yellow;border-color: black; visibility: hidden" aria-hidden="true"></i></button>
+                                            <img id="galleryImg00" src=""/>
+                                        
+                                    </div> 
+                                    <div class="slide" style="position:relative;">
+                                        
+                                            <button id="removeFromGallery" class="btn galleryImgbtnsRigth galleryImg1btns">
+                                            <i class="fa fa-times fa-2x galleryImg1btns" aria-hidden="true" style="color: red; visibility: hidden"></i></button>
+                                            <button id="saveToHistory" class="btn galleryImgbtnsLeft galleryImg1btns"><i class="fa fa-star fa-2x galleryImg1btns"  style="color: yellow;border-color: black; visibility: hidden" aria-hidden="true"></i></button>
+                                            <img id="galleryImg01" src=""/>
+                                        
+                                    </div>                                           
+                                    <div class="slide" style="position:relative;">
+                                         
+                                            <button id="removeFromGallery" class="btn galleryImgbtnsRigth galleryImg2btns">
+                                            <i class="fa fa-times fa-2x galleryImg2btns" aria-hidden="true" style="color: red; visibility: hidden"></i></button>
+                                            <button id="saveToHistory" class="btn galleryImgbtnsLeft galleryImg2btns"><i class="fa fa-star fa-2x galleryImg2btns"  style="color: yellow;border-color: black; visibility: hidden" aria-hidden="true"></i></button>
+                                            <img id="galleryImg02" src=""/>
+                                        
+                                    </div>
+                                    <div class="slide" style="position:relative;">
+                                         
+                                            <button id="removeFromGallery" class="btn galleryImgbtnsRigth galleryImg3btns">
+                                            <i class="fa fa-times fa-2x" aria-hidden="true" style="color: red; visibility: hidden"></i></button>
+                                            <button id="saveToHistory" class="btn galleryImgbtnsLeft galleryImg3btns"><i class="fa fa-star fa-2x galleryImg3btns"  style="color: yellow;border-color: black; visibility: hidden" aria-hidden="true"></i></button>
+                                            <img id="galleryImg03" src=""/>
+                                        
+                                    </div>
+                                    <div class="slide" style="position:relative;">
+                                         
+                                            <button id="removeFromGallery" class="btn galleryImgbtnsRigth galleryImg4btns">
+                                            <i class="fa fa-times fa-2x galleryImg4btns" aria-hidden="true" style="color: red; visibility: hidden"></i></button>
+                                            <button id="saveToHistory" class="btn galleryImgbtnsLeft galleryImg4btns"><i class="fa fa-star fa-2x galleryImg4btns"  style="color: yellow;border-color: black; visibility: hidden" aria-hidden="true"></i></button>
+                                            <img id="galleryImg04" src=""/>
+                                        
+                                    </div>
+                                    <div class="slide" style="position:relative;">
+
+                                            <button id="removeFromGallery" class="btn galleryImgbtnsRigth galleryImg5btns">
+                                            <i class="fa fa-times fa-2x galleryImg5btns" aria-hidden="true" style="color: red; visibility: hidden"></i></button>
+                                            <button id="saveToHistory" class="btn galleryImgbtnsLeft galleryImg5btns"><i class="fa fa-star fa-2x galleryImg5btns"  style="color: yellow;border-color: black; visibility: hidden" aria-hidden="true"></i></button>
+                                            <img id="galleryImg05" src=""/>
+
+                                    </div>
+                                    <div class="slide" style="position:relative;">
+
+                                            <button id="removeFromGallery" class="btn galleryImgbtnsRigth galleryImg6btns">
+                                            <i class="fa fa-times fa-2x galleryImg6btns" aria-hidden="true" style="color: red; visibility: hidden"></i></button>
+                                            <button id="saveToHistory" class="btn galleryImgbtnsLeft galleryImg6btns"><i class="fa fa-star fa-2x galleryImg6btns"  style="color: yellow;border-color: black; visibility: hidden" aria-hidden="true"></i></button>
+                                            <img id="galleryImg06" src=""/>
+
+                                    </div>
+                                    <div class="slide" style="position:relative;">
+
+                                            <button id="removeFromGallery" class="btn galleryImgbtnsRigth galleryImg7btns">
+                                            <i class="fa fa-times fa-2x galleryImg7btns" aria-hidden="true" style="color: red; visibility: hidden"></i></button>
+                                            <button id="saveToHistory" class="btn galleryImgbtnsLeft galleryImg7btns"><i class="fa fa-star fa-2x galleryImg7btns"  style="color: yellow;border-color: black; visibility: hidden" aria-hidden="true"></i></button>
+                                            <img id="galleryImg07" src=""/>
+
+                                    </div>
+                                    <div class="slide" style="position:relative;">
+
+                                            <button id="removeFromGallery" class="btn galleryImgbtnsRigth galleryImg8btns">
+                                            <i class="fa fa-times fa-2x galleryImg8btns" aria-hidden="true" style="color: red; visibility: hidden"></i></button>
+                                            <button id="saveToHistory" class="btn galleryImgbtnsLeft galleryImg8btns"><i class="fa fa-star fa-2x galleryImg8btns"  style="color: yellow;border-color: black; visibility: hidden" aria-hidden="true"></i></button>
+                                            <img id="galleryImg08" src=""/>
+
+                                    </div>
+                                    <div class="slide" style="position:relative;">
+
+                                            <button id="removeFromGallery" class="btn galleryImgbtnsRigth galleryImg9btns">
+                                            <i class="fa fa-times fa-2x galleryImg9btns" aria-hidden="true" style="color: red; visibility: hidden"></i></button>
+                                            <button id="saveToHistory" class="btn galleryImgbtnsLeft galleryImg9btns"><i class="fa fa-star fa-2x galleryImg9btns"  style="color: yellow;border-color: black; visibility: hidden" aria-hidden="true"></i></button>
+                                            <img id="galleryImg09" src=""/>
+
+                                    </div>
+                                </div> <!-- /.gallery -->     
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <div class="row">
+                            <img id="img_toExpand" onclick="hist()" style="max-width: 50%; max-height: 147px;" src="images/histogram_default.jpg">
+
+                            <!-- The Modal -->
+                            <div id="hist" class="modal_img">
+                              <span class="close_img">&times;</span>
+                              <img class="modal_img-content" id="img_01">
+                              <div id="caption"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!-- script visualization -->
+                                <div class="row"></div>
+                               <button id="createCustomScript" class="btn galleryImgbtnsLeft galleryImg1btns" style="position: absolute; left: 54%; top :0px; margin-top: 52%; padding-bottom: 0px; background: transparent;">
+                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                </button>
+                                <a href="/getScriptFile" onclick="return validateScript()" download="downloadscript.txt" class="btn galleryImgbtnsLeft galleryImg1btns" style="position: absolute; left: 58%; top :0px; margin-top: 52%; padding-bottom: 0px; color: black;">
+                                    <i class="fa fa-download" aria-hidden="true"></i>
+                                </a>
+                                <pre id="view_script" style="max-width:85%; border:solid gray;border-width:.1em .1em .1em .8em;padding:.4em .6em; color:#0000DD;margin-top: 50px;" title="Script">No script uploaded</pre>
+                            <!-- /.script visualization -->
+                        </div>
+                    </div>    
+
+                </div>                
+                <!-- /.row -->  
+
+
+
+                <!-- /.row --> 
+                <div class="row"> 
+                    <!-- COMMAND LINE -->
+                    <div class="col-lg-1 col-md-1 col-sm-1">
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8">                    
+                        <div id="cli" class="cli">
+                        
+                        </div><!-- /.COMMAND LINE -->
+                    </div>
+                </div>                
+                <!-- /.row --> 
+            </div>
+        </div>
+        <!--/.affix-content-->
+    </div>
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <section id="documentarion-text">                                       
+                
+            </section>
+            <section id="func-text">
+                <h2>Extra functions</h2>
+                
+                <p>This section was created so the user can add a certain openCV function not available in the plataform. <h4>How this works?</h4>
+                </p>         
+                
+                <p>The user has to upload a file containing the code of the desired function. Also, he has to introduce the number of arguments and a name to the function.
+                </p>
+                
+                <p>
+                   In the file given there is a certain pattern. The first argument must be the input image and the second the output image. The following arguments are the arguments of the function depending on, how many it requires. 
+                </p>
+
+                <p>
+                    See the following video to understand..
+                </p> 
+                <br>
+
+                <div align="middle">
+                    <video width="900" height="350" controls>
+                    <source src="AddFunction.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                    </video>
+                </div>
+                                      
+                
+            </section>
+        </div>
+    </div>
+    <!-- line modal -->
+    <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h3 class="modal-title" id="lineModalLabel">Add new function</h3>
+            </div>
+            <div class="modal-body">            
+                <!-- content goes here -->
+                <form>
+                  <div class="form-group">
+                    <label for="fucntionInputName">Function Name</label>
+                    <input type="text" class="form-control" id="functionInputName" placeholder="Write the name of function">
+                  </div>
+                  <div class="form-group">
+                    <label for="functionInputNumbArgs">Number of arguments</label>
+                    <input type="text" class="form-control" id="functionInputNumbArgs" placeholder="0">
+                  </div>
+                  <div class="form-group">
+                    <label for="functionInputFile">File input</label>
+                    <input type="file" id="functionInputFile">
+                  </div>
+                  <button id="submitNewFunc" type="submit" class="btn btn-default" data-dismiss="modal">Submit</button>
+                </form>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- Javascript -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+    <script src="js/simple-console.js"></script>
+    <!-- MY JS -->
+    <script src="js/api.js"></script>
+    <script src="js/myjs.js"></script>
+    <script src="js/upload.js"></script>
+    <script src="js/terminal.js"></script>
+</body>
+
+</html>
+

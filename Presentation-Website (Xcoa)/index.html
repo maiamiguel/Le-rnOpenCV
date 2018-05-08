@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html><head>
+        <meta charset="utf-8">
+        <title>Le@rnOpenCV</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Loading Bootstrap -->
+        <link href="css/bootstrap.css" rel="stylesheet">
+
+        <!-- Edit CSS -->
+        <link href="css/default.css" rel="stylesheet">
+        <link href="css/main.css" rel="stylesheet">
+
+        <!-- Font Awesome -->
+        <link href="css/font-awesome.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,900,700,600,300,200" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700" rel="stylesheet"> 
+        <link rel="shortcut icon" href="images/favicon.ico">
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+        <!--[if lt IE 9]>
+          <script src="js/html5shiv.js"></script>
+          <script src="js/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+
+        <div id="page" class="page">
+        
+        <header class="header1" id="header1">
+
+                <div class="bg-col">
+
+                    <div class="container">
+
+                        <nav role="navigation" class="navbar navbar-default margin-top-20">
+                            <div class="navbar-header">
+                                <button data-target="#navbar-collapse-02" data-toggle="collapse" class="navbar-toggle" type="button">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a href="index.html" class="navbar-brand brand"><i class="fa fa-codepen"></i>Le@rnOpenCV</a>
+                            </div>
+
+                            <div id="navbar-collapse-02" class="collapse navbar-collapse">
+                                <ul class="nav navbar-nav">
+                                    <li role="presentation" class="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span>
+                                        </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#Features">Features</a></li>
+                                        <li><a href="#Architecture">Overall Architeture</a></li>
+                                        <li><a href="#ClientApplication">Client Application</a></li>
+                                        <li><a href="#Timeline">Schedule of Features</a></li>
+                                        <li><a href="#Risks">Risks and Issues</a></li>
+                                        <li><a href="#Team">The Team</a></li>
+                                    </ul>
+                                  </li>
+                                </ul>		      
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a href="userarea.html">How to use it</a></li>
+                                    <li><a href="specs.html">Specifications</a></li>
+                                    <li><a href="developerarea.html">Developer area</a></li>
+                                    <li><a href="teamarea.html">Team area</a></li>
+                                </ul>
+                            </div><!-- navbar-collapse -->
+                        </nav>    
+
+                        <div class="intro center-content">
+                            <div class="row">
+
+                                <div class="col-md-12">
+                                    <div class="tag-line text-center">Le@rnOpenCV</div>
+                                    <h1 class="pull-stop" style=" text-align: justify; text-align: center;">Learning Visual Computing With OpenCV</h1>
+                                    <p class="m-auto" style=" text-align: justify; font-size: 20px;">
+                                            OpenCV (Open Source Computer Vision Library) was initially developed by Intel in 2000. It is a multiplatform library built in C/C++ with support for Python, Java and Visual Basic. Its usage is free for educational purposes and is majorly used in app development in the areas of Visual Computing.<br>
+                                            According to Intel, the most important developments to come in computer science will be in the visual aspects. Visually rich interfaces create new perspectives with multiple points of application. These can be used for simple entertainment, reproduction of virtual scenarios, identification of objects or people in real time or even allow the access on images of places that are inaccessible, for example in Medicine.<br>
+                                            Our project is an attempt to facilitate the interaction and manipulation of images through a friendly user web service. It aims to permit the user an access to OpenCV functionalities without the need of programming knowledge.
+                                    </p>
+                                    <!--<div class="text-center">
+                                        <a href="" class="btn btn-info button">Get Started</a>
+                                    </div>-->
+                                </div> 
+
+                            </div><!-- row -->
+
+                        </div><!-- intro -->
+
+                    </div><!-- container -->
+                </div><!-- container -->
+
+            </header><!-- header -->
+
+            <br>
+
+            <div style="text-align:center;">
+                <a name="ClientApplication"></a>
+                <br><br>
+                <video id="video1" width="1100" autoplay>
+                    <source src="videos/DEMO_M5.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+            </div>
+
+            <br>
+            <br>
+
+            <div class="container"><a name="Features"></a>
+                <section id="content-section5" class="content-section5">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1 text-center">
+                                <h1 class="display-3">Features</h1>
+                                <p class="big-para">
+                                Since our image processing solution is based on a web service, the features that we pretend to implement are based on high interactivity between service and client. There will be features related to image processing itself and features related to the user's data.
+                                </p>
+                            </div>
+                        </div>  
+                    </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="text-center single-content">
+                                    <h3>Learn image processing</h3>
+                                    <p>
+                                        Learn and study image processing and visual computing algorithms using the OpenCV library.
+                                    </p>
+                                </div>    
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center single-content">
+                                    <h3>Apply image filters</h3>
+                                    <p>
+                                    Use a variety of interactive and easy-to-use effects to your images and visualize the results quickly.
+                                    </p>
+                                </div>    
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center single-content">
+                                    <h3>Create customized scripts</h3>
+                                    <p>
+                                        Create scripts with the image effects that you want and use them on any image.
+                                    </p>
+                                </div>    
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center single-content">
+                                    <h3>Add OpenCV functions</h3>
+                                    <p>
+                                        Add OpenCV functions beyond those that already exist on our application, thus increasing the system's expandability.
+                                    </p>
+                                </div>    
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center single-content">
+                                    <h3>Access the code and OpenCV information</h3>
+                                    <p>
+                                    Access the code that generated the image transformation, with a link to further information about the OpenCV function used behind.
+                                    </p>
+                                </div>    
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center single-content">
+                                    <h3>Create a personal account</h3>
+                                    <p>
+                                    Create a personal account that stores your favorite images (with all the effects applied) and your custom scripts and OpenCV functions.
+                                    </p>
+                                </div>    
+                            </div>
+                        </div><!-- end row -->
+                    </div><!-- end container -->
+                </section>
+            </div><!-- end container --><!-- ****** Time Line Section****** -->
+            <div class="timelinewrapper"><a name="Timeline"></a>
+                <h2>Schedule of features / functionalities release vs milestones</h2>
+                <ul id='timeline'>
+                  <li class='work'>
+                    <input class='radio' id='work6' name='works' type='radio' checked="">
+                    <div class="relative">
+                      <label for='work6'>Implementation of client - server communication and first version of webpage</label>
+                      <span class='date'>Milestone 2</span>
+                      <span class='circle'></span>
+                    </div>
+                    <div class='content'>
+                      <p>
+                        User - server communication will be implemented by establishing the server technology to transfer information.</br>
+                        First version of initial web interface will be defined and simple OpenCV functions will be available.
+                      </p>
+                    </div>
+                  </li>
+                  <li class='work'>
+                    <input class='radio' id='work5' name='works' type='radio'>
+                    <div class="relative">
+                      <label for='work5'>Drag-n-drop/browse image from computer</label>
+                      <span class='date'>Milestone 3</span>
+                      <span class='circle'></span>
+                    </div>
+                    <div class='content'>
+                      <p>
+                        The initial simple button submission will be replaced by a more intuitive and simplistic drag-n-drop style submission.
+                      </p>
+                    </div>
+                  </li>                  
+                  <li class='work'>
+                    <input class='radio' id='work4' name='works' type='radio'>
+                    <div class="relative">
+                      <label for='work4'>Image filters and creation of favorites</label>
+                      <span class='date'>Milestone 4</span>
+                      <span class='circle'></span>
+                    </div>
+                    <div class='content'>
+                      <p>
+                       A more complete set of OpenCV functions will be available to the user with different levels of complexity and effect combinations.</br>
+                       A gallery of the recent interaction will be available to permit the back-roll to a previous state or the usage of the previous applied effects.
+                      </p>
+                    </div>
+                  </li>
+                  <li class='work'>
+                    <input class='radio' id='work3' name='works' type='radio'>
+                    <div class="relative">
+                      <label for='work3'>Access OpenCV information and expansion of OpenCV functions</label>
+                      <span class='date'>Milestone 5</span>
+                      <span class='circle'></span>
+                    </div>
+                    <div class='content'>
+                      <p>
+                        The OpenCV information that allows the creation of the image effects and the corresponding scripts will be shown to user, with the orientation for user that want a deeper understanding of the functions.</br>
+                        Users will be able to expand the OpenCV functions available by adding new functions.
+                      </p>
+                    </div>
+                  </li>
+                  <li class='work'>
+                    <input class='radio' id='work2' name='works' type='radio'>
+                    <div class="relative">
+                      <label for='work2'>Personal account and favorite images</label>
+                      <span class='date'>Milestone 6</span>
+                      <span class='circle'></span>
+                    </div>
+                    <div class='content'>
+                      <p>
+                        At this stage the user will be given the possibility to create an account which will allow him to store information relative to all the interaction with our application, namely the changes made to past images and all the commands and combination of commands executed before and all the customized scripts and functions.
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+            </div><!-- end container -->
+            <section id="content-section2-5" class="content2-5"><a name="Architecture"></a>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-1 col-sm-6">
+                            <ul class="media-list">
+                                <li class="media single-content">
+                                    <div class="media-right pull-right">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <div class="media-body text-right">
+                                        <h3>Client side</h3>
+                                        <p style=" text-align: justify;">
+                                           The user must access the project page through a HTML and CSS compatible browser. The communication between the page and the servers is done through the use of a Javascript library called jQuery.
+                                        </p>
+                                    </div>
+                                </li>    
+                                <li class="media single-content">
+                                    <div class="media-right pull-right">
+                                        <i class="fa fa-server"></i>
+                                    </div>
+                                    <div class="media-body text-right">
+                                        <h3>Server side </h3>
+                                        <p style=" text-align: justify;">
+                                           The backend services will run on applications using Python. The web server will be running on the CherryPy framework, which allows a simplistic interaction between the backend and frontend. All the image processing and manipulation will be done by the OpenCV library that provides a great variety of functions available for the user. To save user data and information a database server may be added later to enable features in the future. The backend services may run on a single machine, based on a virtual or physical environment.
+                                        </p>
+                                    </div>
+                                </li> 
+                            </ul>    
+                        </div>
+                        <div class="col-md-6 col-md-offset-1 col-sm-6">
+                            <img class="img-responsive" src="images/project.png" alt="Overall Architecture">
+                        </div>
+                        
+                    </div><!-- end row -->
+                </div><!-- end container -->
+                <!-- end container -->
+                <div class="container-full"> <a name="Risks"></a>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h1 class="page-header">Risks and Issues</h1>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4><i class="fa fa-fw fa-check"></i>Server Unavailability</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        <p>Our project uses several platforms which require an internet connection. Due to this fact, some risks associated with server unavailability due to internet breakdown</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4><i class="fa fa-fw fa-check"></i>Package loss</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        <p>The connection through the Internet creates a great number of packet exchanges that might some conflicts and collision leading to packet loss</p>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4><i class="fa fa-fw fa-check"></i>Incompatibilities</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        <p>The users interface must be compatible with the technologies on which the web page is developed on, namely HTML, CSS and JavaScript libraries</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4><i class="fa fa-fw fa-check"></i>Client data management</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        <p>Data regarding the user will be stored and must be securely managed to offer through a simplistic and effectfull way</p>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- end container -->
+            <!-- /.row -->
+            <!-- ****** Team Section****** -->
+            <section id="team2-2" class="team2-2">
+                <div class="section-padding">
+                    <div class="container"><a name="Team"></a>
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 text-center">
+                                <div class="section-title wow bounceIn">
+                                    <h2>The Team </h2>
+                                </div><!-- //title -->
+                                <div class="subtitle">
+                                    Our team is composed of a highly motivated developers from the <a href="http://www.ua.pt" style="color: #FF0000">University of Aveiro</a>. 
+                                </div><!-- //subtitle --> 					
+                            </div><!-- //column -->
+                        </div><!-- //row -->   
+                        <div class="row margin">	
+                            <div class="col-md-4 col-sm-6 col-xs-12 text-center">
+                                <div class="box">
+                                    <div><img src="images/nascimento.png" alt="Team Member 1"></div>		
+                                    <h3>André Nascimento</h3>
+                                    <div><strong>Infrastructure Manager & Developer</strong></div>
+                                    <p class="description ">73152</p>
+                                    <div>
+                                        <a href="mailto:andrenascimento@ua.pt"><i class="fa fa-envelope fa-1x social-icon"></i></a>
+                                        <a href="https://www.facebook.com/suduaya"><i class="fa fa-facebook fa-1x social-icon"></i></a> 
+                                    </div>									
+                                </div><!-- //box -->
+                            </div><!-- //column -->                     
+                            <div class="col-md-4 col-sm-6 col-xs-12 text-center">
+                                <div class="box">
+                                    <div><img src="images/maia.jpg" alt="Team Member 2"></div>
+                                    <h3>Miguel Maia</h3>
+                                    <div><strong>Web Designer &amp Infrastructure manager</strong></div>							
+                                    <p class="description ">76434</p>
+                                    <div>
+                                        <a href="mailto:maiamiguel@ua.pt"><i class="fa fa-envelope fa-1x social-icon"></i></a>
+                                        <a href="https://www.facebook.com/miguel.maia.98"><i class="fa fa-facebook fa-1x social-icon"></i></a> 
+                                    </div>	
+                                </div><!-- //box -->
+                            </div><!-- //column -->
+                            <div class="col-md-4 col-sm-6 col-xs-12 text-center">
+                                <div class="box">
+                                    <div><img src="images/amaral.png" alt="Team Member 3"></div>
+                                    <h3>João Amaral</h3>
+                                    <div><strong>Quality assurance &amp Documentation manager</strong></div>	
+                                    <p class="description ">76460</p>
+                                    <div>
+                                        <a href="mailto:joaop.amaral@ua.pt"><i class="fa fa-envelope fa-1x social-icon"></i></a>
+                                        <a href="https://www.facebook.com/joao.amaral.773"><i class="fa fa-facebook fa-1x social-icon"></i></a> 
+                                    </div>	 									
+                                </div><!-- //box -->
+                            </div><!-- //column -->	
+                            <div class="col-md-4 col-sm-6 col-xs-12 text-center">
+                                <div class="box">
+                                    <div><img src="images/cunha.jpg" alt="Team Member 4"></div>
+                                    <h3>Fábio Cunha</h3>
+                                    <div><strong>Quality assurance &amp  Developer</strong></div>								
+                                    <p class="description ">76677</p>
+                                    <div>
+                                        <a href="mailto:fabiocunha@ua.pt"><i class="fa fa-envelope fa-1x social-icon"></i></a>
+                                        <a href="https://www.facebook.com/fabio.cunha.35"><i class="fa fa-facebook fa-1x social-icon"></i></a> 
+                                    </div>							
+                                </div><!-- //box -->
+                            </div><!-- //column --> 
+                            <div class="col-md-4 col-sm-6 col-xs-12 text-center">
+                                <div class="box">
+                                    <div><img src="images/nelson.jpg" alt="Team Member 5"></div>
+                                    <h3>Nelson Costa</h3>
+                                    <div><strong>Quality assurance &amp Documentation manager</strong></div>                              
+                                    <p class="description ">42983</p>
+                                    <div>
+                                        <a href="mailto:nelson.costa@ua.pt"><i class="fa fa-envelope fa-1x social-icon"></i></a>
+                                        <a href="https://www.facebook.com/nelson.costa.581525"><i class="fa fa-facebook fa-1x social-icon"></i></a> 
+                                    </div>                          
+                                </div><!-- //box -->
+                            </div><!-- //column --> 
+                            <div class="col-md-4 col-sm-6 col-xs-12 text-center">
+                                <div class="box">
+                                    <div><img src="images/daniel.png" alt="Team Member 4"></div>
+                                    <h3>Daniel Alves</h3>
+                                    <div><strong>Team Manager & Infrastructure Manager</strong></div>                              
+                                    <p class="description ">76469</p>
+                                    <div>
+                                        <a href="mailto:da.alves@ua.pt"><i class="fa fa-envelope fa-1x social-icon"></i></a>
+                                        <a href="https://www.facebook.com/daniel.alves.3956"><i class="fa fa-facebook fa-1x social-icon"></i></a> 
+                                    </div>                          
+                                </div><!-- //box -->
+                            </div><!-- //column --> 
+                        </div><!-- //row --> 
+                    </div><!--//container--> 
+                </div><!--//section padding-->
+            </section><!--//team section --><!-- ****** Mentor Section****** -->
+        <!--======== mentors =========-->
+            <section id="team2" class="team2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 text-center">  
+                            <h1 class="section-title">Mentoring Team</h1>
+                            <div class="main-divider"><span class="center-divider"><i class="lnr lnr-chevron-down"></i></span></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="single-leader-wrapper text-center wow fadeInUp" data-wow-delay="0.4s">
+                                <div class="single-leader">
+                                    <img src="images/carlosbastos.jpeg" alt="team" class="img-responsive center-block" style="width: 268.5px; height: 262.5px;">
+                                    <div class="leader-overflow">
+                                        <strong>Prof. Carlos Bastos</strong>
+                                        <div>Mentor</div>
+                                        <div class="just-arrow"><span></span></div>
+                                    </div>
+                                </div>    
+                                <div class="leader-detail">
+                                    <p>Auxiliar Professor at University of Aveiro</p> 
+                                    <ul class="list-inline leader-links">
+                                        <li><a href="mailto:cbastos@ua.pt"><i class="fa fa-envelope"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="single-leader-wrapper text-center wow fadeInUp" data-wow-delay="0.2s">
+                                <div class="single-leader">
+                                    <img src="images/neves.png" alt="team" class="img-responsive center-block" style="width: 268.5px; height: 262.5px;">
+                                    <div class="leader-overflow">
+                                        <strong>Prof. António Neves</strong>
+                                        <div>Collaborator</div>
+                                        <div class="just-arrow"><span></span></div>
+                                    </div>
+                                </div>    
+                                <div class="leader-detail">
+                                    <p>Auxiliar Professor at University of Aveiro</p> 
+                                    <ul class="list-inline leader-links">
+                                        <li><a href="mailto:an@ua.pt"><i class="fa fa-envelope"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>                        
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                        </div>                        
+                    </div>
+                </div>
+            </section>
+            <!--======== End leaders =========-->
+            
+            <footer id="footer6" class="footer6">
+                <div class="footer-copyright">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <a class="logo" href="index.html">
+                                    <strong>Le@rnOpenCV</strong>
+                                </a>
+                            </div>
+                            <div class="col-md-3">
+                                <p>All rights reserved to bootstrap. &copy; 2017</p>
+                            </div>
+                            <div >
+                                <nav id="footer-menu">
+                                    <ul>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="userarea.html">How to use it</a></li>
+                                        <li><a href="specs.html">Specifications</a></li>
+                                        <li><a href="developerarea.html">Developer area</a></li>
+                                        <li><a href="teamarea.html">Team area</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>            
+
+
+
+        <!--=== Load JS here for greater good ====-->
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/isotope.pkgd.js"></script>
+        <script src="js/jquery.countdown.min.js"></script>
+        <script src="js/jquery.flexslider.js"></script>
+        <script src="js/jquery.nivo.slider.pack.js"></script>
+        <script src="js/portfolio-custom1.js"></script>
+        <script src="js/portfolio-custom2.js"></script>
+        <script src="js/main.js"></script>
+    
+
+</body></html>
